@@ -23,8 +23,7 @@ public class CityService {
 		
 		List<City> listOfCities = repository.findAll(Sort.by("name"));
 		List<CityDTO> listOfCitiesDTO = listOfCities.stream().map(x -> new CityDTO(x)).collect(Collectors.toList());
-		return listOfCitiesDTO;
-		
+		return listOfCitiesDTO;		
 	}
 	
 	@Transactional
