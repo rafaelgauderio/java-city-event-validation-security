@@ -21,7 +21,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 	
 	private static final String [] EVENTS_AND_CITIES ={"/events/**", "/cities/**"}; 
 			
-	private static final String [] ADMIM_OR_CLIENT = {"/events/**", "/cities/**"};
+	private static final String [] ADMIM_O_CLIENT = {"/events/**", "/cities/**"};
 
 	private static final String [] ADMINISTRATOR = {"/users/**"}; 
 
@@ -49,8 +49,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
 		http.authorizeRequests()
 		.antMatchers(PUBLIC).permitAll()		
-		.antMatchers(HttpMethod.GET, EVENTS_AND_CITIES).permitAll()	
-		.antMatchers(HttpMethod.POST, ADMIM_OR_CLIENT).permitAll()	
+		.antMatchers(HttpMethod.GET, EVENTS_AND_CITIES).permitAll()
+		.antMatchers(HttpMethod.POST, EVENTS_AND_CITIES).hasRole("ADMIN")	
 		.antMatchers(ADMINISTRATOR).hasRole("ADMIN")
 		//.anyRequest().authenticated(); // para acessar qualquer outra rota não espeficicada tem que estar logado
 		.anyRequest().hasRole("ADMIN");
