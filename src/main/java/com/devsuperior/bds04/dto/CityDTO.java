@@ -5,12 +5,11 @@ import java.io.Serializable;
 import javax.validation.constraints.NotBlank;
 
 import com.devsuperior.bds04.entities.City;
-import com.sun.istack.NotNull;
 
 public class CityDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	@NotNull
+	
 	private Long id;
 	
 	@NotBlank(message = "Campo requerido")
